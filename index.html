@@ -1,51 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fireworks v2.0.css">
-    <title>FireWorks v2.0</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy New Year 2025</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+
+      :root {
+        --bg: #000000;
+        --clr-1: #00c2ff;
+        --clr-2: #33ff8c;
+        --clr-3: #ffc640;
+        --clr-4: #e54cff;
+
+        --blur: 1rem;
+        --fs: clamp(3rem, 8vw, 7rem);
+        --ls: clamp(-1.75px, -0.25vw, -3.5px);
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: var(--bg);
+        color: #fff;
+        font-family: "Inter", "DM Sans", Arial, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        font-family: inherit;
+        box-sizing: border-box;
+      }
+
+      .content {
+        text-align: center;
+      }
+
+      .title {
+        font-size: var(--fs);
+        font-weight: 800;
+        letter-spacing: var(--ls);
+        position: relative;
+        overflow: hidden;
+        background: var(--bg);
+        margin: 0;
+      }
+
+      .subtitle {
+      }
+
+      .aurora {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        mix-blend-mode: darken;
+        pointer-events: none;
+      }
+
+      .aurora__item {
+        overflow: hidden;
+        position: absolute;
+        width: 60vw;
+        height: 60vw;
+        background-color: var(--clr-1);
+        border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+        filter: blur(var(--blur));
+        mix-blend-mode: overlay;
+      }
+
+      .aurora__item:nth-of-type(1) {
+        top: -50%;
+        animation: aurora-border 6s ease-in-out infinite,
+          aurora-1 12s ease-in-out infinite alternate;
+      }
+
+      .aurora__item:nth-of-type(2) {
+        background-color: var(--clr-3);
+        right: 0;
+        top: 0;
+        animation: aurora-border 6s ease-in-out infinite,
+          aurora-2 12s ease-in-out infinite alternate;
+      }
+
+      .aurora__item:nth-of-type(3) {
+        background-color: var(--clr-2);
+        left: 0;
+        bottom: 0;
+        animation: aurora-border 6s ease-in-out infinite,
+          aurora-3 8s ease-in-out infinite alternate;
+      }
+
+      .aurora__item:nth-of-type(4) {
+        background-color: var(--clr-4);
+        right: 0;
+        bottom: -50%;
+        animation: aurora-border 6s ease-in-out infinite,
+          aurora-4 24s ease-in-out infinite alternate;
+      }
+
+      @keyframes aurora-1 {
+        0% {
+          top: 0;
+          right: 0;
+        }
+
+        50% {
+          top: 100%;
+          right: 75%;
+        }
+
+        75% {
+          top: 100%;
+          right: 25%;
+        }
+
+        100% {
+          top: 0;
+          right: 0;
+        }
+      }
+
+      @keyframes aurora-2 {
+        0% {
+          top: -50%;
+          left: 0%;
+        }
+
+        60% {
+          top: 100%;
+          left: 75%;
+        }
+
+        85% {
+          top: 100%;
+          left: 25%;
+        }
+
+        100% {
+          top: -50%;
+          left: 0%;
+        }
+      }
+
+      @keyframes aurora-3 {
+        0% {
+          bottom: 0;
+          left: 0;
+        }
+
+        40% {
+          bottom: 100%;
+          left: 75%;
+        }
+
+        65% {
+          bottom: 40%;
+          left: 50%;
+        }
+
+        100% {
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      @keyframes aurora-4 {
+        0% {
+          bottom: -50%;
+          right: 0;
+        }
+
+        50% {
+          bottom: 0%;
+          right: 40%;
+        }
+
+        90% {
+          bottom: 50%;
+          right: 25%;
+        }
+
+        100% {
+          bottom: -50%;
+          right: 0;
+        }
+      }
+
+      @keyframes aurora-border {
+        0% {
+          border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+        }
+
+        25% {
+          border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%;
+        }
+
+        50% {
+          border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%;
+        }
+
+        75% {
+          border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%;
+        }
+
+        100% {
+          border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+        }
+      }
+
+      /* button */
+      button {
+        width: 200px;
+        height: 70px;
+        background: rgb(63, 94, 251);
+        background: radial-gradient(
+          circle,
+          rgba(63, 94, 251, 1) 0%,
+          rgba(252, 70, 107, 1) 100%
+        );
+        border-style: none;
+        color: #fff;
+        font-size: 23px;
+        letter-spacing: 3px;
+        font-family: "Lato";
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        padding: 0px;
+        overflow: hidden;
+        transition: all 0.5s;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      button span {
+        position: absolute;
+        display: block;
+      }
+      button span:nth-child(1) {
+        height: 3px;
+        width: 200px;
+        top: 0px;
+        left: -200px;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), #f6e58d);
+        border-top-right-radius: 1px;
+        border-bottom-right-radius: 1px;
+        animation: span1 2s linear infinite;
+        animation-delay: 1s;
+      }
+
+      @keyframes span1 {
+        0% {
+          left: -200px;
+        }
+        100% {
+          left: 200px;
+        }
+      }
+      button span:nth-child(2) {
+        height: 70px;
+        width: 3px;
+        top: -70px;
+        right: 0px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f6e58d);
+        border-bottom-left-radius: 1px;
+        border-bottom-right-radius: 1px;
+        animation: span2 2s linear infinite;
+        animation-delay: 2s;
+      }
+      @keyframes span2 {
+        0% {
+          top: -70px;
+        }
+        100% {
+          top: 70px;
+        }
+      }
+      button span:nth-child(3) {
+        height: 3px;
+        width: 200px;
+        right: -200px;
+        bottom: 0px;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0), #f6e58d);
+        border-top-left-radius: 1px;
+        border-bottom-left-radius: 1px;
+        animation: span3 2s linear infinite;
+        animation-delay: 3s;
+      }
+      @keyframes span3 {
+        0% {
+          right: -200px;
+        }
+        100% {
+          right: 200px;
+        }
+      }
+
+      button span:nth-child(4) {
+        height: 70px;
+        width: 3px;
+        bottom: -70px;
+        left: 0px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0), #f6e58d);
+        border-top-right-radius: 1px;
+        border-top-left-radius: 1px;
+        animation: span4 2s linear infinite;
+        animation-delay: 4s;
+      }
+      @keyframes span4 {
+        0% {
+          bottom: -70px;
+        }
+        100% {
+          bottom: 70px;
+        }
+      }
+
+      button:hover {
+        transition: all 0.5s;
+        transform: rotate(-3deg) scale(1.1);
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+      }
+      button:hover span {
+        animation-play-state: paused;
+      }
+    </style>
   </head>
-  <body>  
-    <canvas id="canvas"></canvas>
-    <div class="block-audio">
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp1.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp1.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp1.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp2.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp2.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp2.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp3.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp3.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp3.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp4.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp4.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp4.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp5.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp5.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp5.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp6.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp6.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp6.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp7.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp7.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp7.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp8.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp8.mp3" controls="controls"></audio>
-      <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp8.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch1.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch1.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch2.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch2.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch3.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch3.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch4.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch4.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch5.mp3" controls="controls"></audio>
-      <audio class="launch" src="http://static.dar-studio.com/codepen/audio/firework/launch5.mp3" controls="controls"></audio>
+  <body>
+    <div class="content">
+      <h1 class="title">
+        Happy New Year 2025
+        <div class="aurora">
+          <div class="aurora__item"></div>
+          <div class="aurora__item"></div>
+          <div class="aurora__item"></div>
+          <div class="aurora__item"></div>
+        </div>
+      </h1>
+      <p class="subtitle">
+        Wishing you a new year full of brilliant success, complete joy, and may
+        all your dreams come true
+      </p>
+      <p>- From QLoan with love</p>
+
+      <br /><br /><br />
+      <button>
+        <a
+          href="firework.html"
+          style="text-decoration: none; color: white"
+        >
+          Click Here!
+        </a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    
-    <script src="jQuery.js"></script>
-    <script src="fireworks v2.0.js"></script>
   </body>
 </html>
